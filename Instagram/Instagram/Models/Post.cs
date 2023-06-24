@@ -8,8 +8,12 @@ namespace Instagram.Models
         [Key]
         public int? Id { get; set; }
         public string? Content { get; set; }
-        public string? ImagePath { get; set; }
+        public int? ImageId { get; set; }
+        [ForeignKey("ImageId")]
         public Image? image { get; set; }
+        public int? UserId { get; set; }
+        [ForeignKey("UserId")]
         public User? user { get; set; }
+        
     }
 }

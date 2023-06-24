@@ -13,6 +13,7 @@ namespace Instagram.Models
         public DbSet<Post> Posts { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Image> Images { get; set; }
+        public DbSet<ImagesPost> imagesPosts { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseMySQL("Server=localhost;port=3306;username=root;Password=123456;Database=instagram;");
