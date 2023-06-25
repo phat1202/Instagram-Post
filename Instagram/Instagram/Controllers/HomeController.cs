@@ -1,4 +1,6 @@
-﻿using Instagram.Models;
+﻿using CloudinaryDotNet;
+using Google.Protobuf.WellKnownTypes;
+using Instagram.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -29,9 +31,17 @@ namespace Instagram.Controllers
         [HttpPost]
         public IActionResult CreatePost(Post post, IFormFile image)
         {
+
             var uploadResult = new UpLoadFile();
-            uploadResult.uploadImage(image);
-            _context.Add(post);
+            var status = new Post()
+            {
+                Content = post.Content,
+                CreatedAt = DateTime.Now,
+                ImageId = uploadResult.uploadImage(image),
+                IsActive = true,
+                IsDeleted = false
+            };
+            _context.Add(status);
             _context.SaveChanges();
             return RedirectToAction("Index");
         }

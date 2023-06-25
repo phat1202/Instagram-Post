@@ -7,12 +7,8 @@ namespace Instagram.Models
     public class UpLoadFile
     {
         public static Cloudinary? cloudinary;
-        public const string CLOUD_NAME = "dqnsplymn";
-        public const string API_KEY = "279175116359664";
-        public const string API_SECRET = "Oii8kBOmGAaOw_Wadnp0Rwc9oFk";
-        public string? imagePath;
-        public IFormFile? image;
-        public void uploadImage(IFormFile? imageFile)
+
+        public int uploadImage(IFormFile? imageFile)
         {
             var acc = new Account("dqnsplymn", "279175116359664", "Oii8kBOmGAaOw_Wadnp0Rwc9oFk");
             var cloudinary = new Cloudinary(acc);
@@ -21,7 +17,16 @@ namespace Instagram.Models
             {
                 File = new FileDescription(imageFile.FileName, stream)
             };
-            cloudinary.Upload(uploadParams);
+            var result = cloudinary.Upload(uploadParams);
+            var Path = new Image()
+            {
+                Url = result.SecureUrl.OriginalString.ToString()
+            };
+            var db = new InsContext();
+            db.Add(Path);
+            db.SaveChanges();
+            var imageid = Path.ImageId;
+            return imageid.Value;
         }
       
 
