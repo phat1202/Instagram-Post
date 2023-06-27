@@ -19,20 +19,6 @@ namespace Instagram.Migrations
                 .HasAnnotation("ProductVersion", "7.0.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("Instagram.Models.Image", b =>
-                {
-                    b.Property<int?>("ImageId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("Url")
-                        .HasColumnType("longtext");
-
-                    b.HasKey("ImageId");
-
-                    b.ToTable("Images");
-                });
-
             modelBuilder.Entity("Instagram.Models.ImagesPost", b =>
                 {
                     b.Property<int?>("Id")
@@ -52,6 +38,20 @@ namespace Instagram.Migrations
                     b.HasIndex("PostId");
 
                     b.ToTable("imagesPosts");
+                });
+
+            modelBuilder.Entity("Instagram.Models.Imagez", b =>
+                {
+                    b.Property<int?>("ImageId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Url")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("ImageId");
+
+                    b.ToTable("Images");
                 });
 
             modelBuilder.Entity("Instagram.Models.Post", b =>
@@ -87,11 +87,14 @@ namespace Instagram.Migrations
                     b.ToTable("Posts");
                 });
 
-            modelBuilder.Entity("Instagram.Models.User", b =>
+            modelBuilder.Entity("Instagram.Models.Userz", b =>
                 {
                     b.Property<int?>("UserId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    b.Property<string>("Avatar")
+                        .HasColumnType("longtext");
 
                     b.Property<string>("ConfirmPassword")
                         .IsRequired()
@@ -116,15 +119,32 @@ namespace Instagram.Migrations
                         new
                         {
                             UserId = 1,
-                            ConfirmPassword = "tp1202",
-                            Password = "tp1202",
-                            UserName = "TanPhat"
+                            Avatar = "https://res.cloudinary.com/dqnsplymn/image/upload/v1687771994/pp_kgahaq.png",
+                            ConfirmPassword = "123456",
+                            Password = "123456",
+                            UserName = "tanphat"
+                        },
+                        new
+                        {
+                            UserId = 2,
+                            Avatar = "https://res.cloudinary.com/dqnsplymn/image/upload/v1687771724/CM_o4utih.png",
+                            ConfirmPassword = "123456",
+                            Password = "123456",
+                            UserName = "congminh"
+                        },
+                        new
+                        {
+                            UserId = 3,
+                            Avatar = "https://res.cloudinary.com/dqnsplymn/image/upload/v1687771676/QNAvartatsgd_bjye0p.png",
+                            ConfirmPassword = "123456",
+                            Password = "123456",
+                            UserName = "quocname"
                         });
                 });
 
             modelBuilder.Entity("Instagram.Models.ImagesPost", b =>
                 {
-                    b.HasOne("Instagram.Models.Image", "image")
+                    b.HasOne("Instagram.Models.Imagez", "image")
                         .WithMany()
                         .HasForeignKey("ImageId");
 
@@ -139,11 +159,11 @@ namespace Instagram.Migrations
 
             modelBuilder.Entity("Instagram.Models.Post", b =>
                 {
-                    b.HasOne("Instagram.Models.Image", "image")
+                    b.HasOne("Instagram.Models.Imagez", "image")
                         .WithMany()
                         .HasForeignKey("ImageId");
 
-                    b.HasOne("Instagram.Models.User", "user")
+                    b.HasOne("Instagram.Models.Userz", "user")
                         .WithMany()
                         .HasForeignKey("UserId");
 

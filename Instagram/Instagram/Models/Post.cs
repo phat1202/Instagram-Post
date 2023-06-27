@@ -10,10 +10,10 @@ namespace Instagram.Models
         public string? Content { get; set; }
         public int? ImageId { get; set; }
         [ForeignKey("ImageId")]
-        public Image? image { get; set; }
+        public Imagez? image { get; set; }
         public int? UserId { get; set; }
         [ForeignKey("UserId")]
-        public User? user { get; set; }
+        public Userz? user { get; set; }
         
     }
 }

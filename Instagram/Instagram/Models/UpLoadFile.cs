@@ -18,7 +18,7 @@ namespace Instagram.Models
                 File = new FileDescription(imageFile.FileName, stream)
             };
             var result = cloudinary.Upload(uploadParams);
-            var Path = new Image()
+            var Path = new Imagez()
             {
                 Url = result.SecureUrl.OriginalString.ToString()
             };
@@ -28,7 +28,7 @@ namespace Instagram.Models
             var imageid = Path.ImageId;
             return imageid.Value;
         }
-      
+
 
     }
 }

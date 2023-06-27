@@ -12,7 +12,7 @@ namespace Instagram.Controllers
         }
         public IActionResult Index()
         {
-            List<User> users = _context.Users.ToList();
+            List<Userz> users = _context.Users.ToList();
             return View(users);
         }
         public IActionResult Create()
@@ -20,7 +20,7 @@ namespace Instagram.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Create(User user)
+        public IActionResult Create(Userz user)
         {
             var dup_user = _context.Users.Where(u => u.UserName == user.UserName).FirstOrDefault();
             string special = @"\|!#$%&/()=?»«@£§€{}.-;'<>_,";
@@ -55,7 +55,7 @@ namespace Instagram.Controllers
         [HttpPost]
         public IActionResult Login(string uid, string pass)
         {
-    
+
             var account = _context.Users.Where(u => u.UserName == uid && u.Password == pass).FirstOrDefault();
             if (account == null)
             {
@@ -73,7 +73,7 @@ namespace Instagram.Controllers
         {
 
             var account = _context.Users.Where(u => u.UserName == username).FirstOrDefault();
-            var password =_context.Users.Where(p => p.Password == oldPassword).FirstOrDefault();
+            var password = _context.Users.Where(p => p.Password == oldPassword).FirstOrDefault();
             if (account == null)
             {
                 ModelState.AddModelError("", "This username doesn't exist");

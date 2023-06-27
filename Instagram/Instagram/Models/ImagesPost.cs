@@ -9,7 +9,7 @@ namespace Instagram.Models
         public int? Id { get; set; }
         public int? ImageId { get; set; }
         [ForeignKey("ImageId")]
-        public Image? image { get; set; }
+        public Imagez? image { get; set; }
         public int? PostId { get; set; }
         [ForeignKey("PostId")]
         public Post? post { get; set; }

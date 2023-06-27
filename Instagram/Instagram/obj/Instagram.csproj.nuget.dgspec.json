@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\trgta\\OneDrive\\Desktop\\C#\\PP\\Instagram-Post\\Instagram\\Instagram\\Instagram.csproj": {}
+    "C:\\Users\\trgta\\OneDrive\\Desktop\\Instagram\\Instagram\\Instagram.csproj": {}
   },
   "projects": {
-    "C:\\Users\\trgta\\OneDrive\\Desktop\\C#\\PP\\Instagram-Post\\Instagram\\Instagram\\Instagram.csproj": {
+    "C:\\Users\\trgta\\OneDrive\\Desktop\\Instagram\\Instagram\\Instagram.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\trgta\\OneDrive\\Desktop\\C#\\PP\\Instagram-Post\\Instagram\\Instagram\\Instagram.csproj",
+        "projectUniqueName": "C:\\Users\\trgta\\OneDrive\\Desktop\\Instagram\\Instagram\\Instagram.csproj",
         "projectName": "Instagram",
-        "projectPath": "C:\\Users\\trgta\\OneDrive\\Desktop\\C#\\PP\\Instagram-Post\\Instagram\\Instagram\\Instagram.csproj",
+        "projectPath": "C:\\Users\\trgta\\OneDrive\\Desktop\\Instagram\\Instagram\\Instagram.csproj",
         "packagesPath": "C:\\Users\\trgta\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\trgta\\OneDrive\\Desktop\\C#\\PP\\Instagram-Post\\Instagram\\Instagram\\obj\\",
+        "outputPath": "C:\\Users\\trgta\\OneDrive\\Desktop\\Instagram\\Instagram\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\trgta\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -45,9 +45,7 @@
               "target": "Package",
               "version": "[1.21.0, )"
             },
-            "Microsoft.EntityFrameworkCore.Design": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
+            "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[7.0.8, )"
             },
@@ -57,15 +55,7 @@
               "target": "Package",
               "version": "[7.0.8, )"
             },
-            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
-              "target": "Package",
-              "version": "[7.0.7, )"
-            },
             "MySql.Data": {
-              "target": "Package",
-              "version": "[8.0.33, )"
-            },
-            "MySql.Data.EntityFramework": {
               "target": "Package",
               "version": "[8.0.33, )"
             },
@@ -76,10 +66,6 @@
             "MySqlConnector": {
               "target": "Package",
               "version": "[2.2.6, )"
-            },
-            "Pomelo.EntityFrameworkCore.MySql": {
-              "target": "Package",
-              "version": "[7.0.0, )"
             }
           },
           "imports": [
