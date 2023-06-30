@@ -73,6 +73,9 @@ body {
     margin: 0 10px;
     display: inline-block;
 }
+    .icon:hover {
+        color: red;
+    }
 
 .user-profile {
     width: 22px;
@@ -360,4 +363,24 @@ body {
     .post-image{
         height: 300px;
     }
+}
+button.regular, .buttons a.regular {
+    color: #336699;
+}
+
+    .buttons a.regular:hover, button.regular:hover {
+        background-color: #dff4ff;
+        border: 1px solid #c2e1ef;
+        color: #336699;
+    }
+
+    .buttons a.regular:active {
+        background-color: #6299c5;
+        border: 1px solid #6299c5;
+        color: #fff;
+    }
+.heart {
+    font-size: 25px;
+    border: 1px solid black;
+    color: red;
 }

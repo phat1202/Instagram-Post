@@ -9,6 +9,7 @@
       "Instagram/1.0.0": {
         "dependencies": {
           "CloudinaryDotNet": "1.21.0",
+          "FontAwesome": "4.7.0",
           "Microsoft.EntityFrameworkCore": "7.0.8",
           "Microsoft.EntityFrameworkCore.Tools": "7.0.8",
           "MySql.Data": "8.0.33",
@@ -32,6 +33,7 @@
           }
         }
       },
+      "FontAwesome/4.7.0": {},
       "Google.Protobuf/3.21.9": {
         "runtime": {
           "lib/net5.0/Google.Protobuf.dll": {
@@ -498,6 +500,13 @@
       "sha512": "sha512-ln7vw2WwpwmdB3bqKHV5fOTLQBV074KPI/WoMxXrIlSAZTBKjNHm6AcEJa2nz9yVIa17+r4/9yI+h4oJORZ1QA==",
       "path": "cloudinarydotnet/1.21.0",
       "hashPath": "cloudinarydotnet.1.21.0.nupkg.sha512"
+    },
+    "FontAwesome/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-n4H/brfszElyoZ4kmGh8E75uqvLzLvFr3h2PFVdPH1LwUmWIpeqdaW2pcC4oZAhg7sESyObh0IZpAI8COCNeUg==",
+      "path": "fontawesome/4.7.0",
+      "hashPath": "fontawesome.4.7.0.nupkg.sha512"
     },
     "Google.Protobuf/3.21.9": {
       "type": "package",
