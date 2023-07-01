@@ -42,6 +42,25 @@ namespace Instagram.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index", "Home");
         }
+        //public IActionResult Like(Reaction react, int postId)
+        //{
+        //    var post = _context.Posts.Where(p => p.Id == postId).FirstOrDefault();
+        //    if (post == null)
+        //    {
+        //        ModelState.AddModelError("", "Bài viết không tồn tại!");
+        //    }
+        //    post.ReId = react.ReId;
+        //    var reaction = new Reaction()
+        //    {
+        //        Like = react.Like,
+        //        Comment = react.Comment,
+        //        PostId = postId,
+        //        UserId = 2,
+        //    };
+        //    _context.Add(reaction);
+        //    _context.SaveChanges();
+        //    return RedirectToAction("Index","Home");
+        //}
     }
 
 }

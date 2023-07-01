@@ -3,6 +3,7 @@ using System;
 using Instagram.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Instagram.Migrations
 {
     [DbContext(typeof(InsContext))]
-    partial class InsContextModelSnapshot : ModelSnapshot
+    [Migration("20230630093750_AddReaction")]
+    partial class AddReaction
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -60,9 +63,6 @@ namespace Instagram.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("Comment")
-                        .HasColumnType("longtext");
-
                     b.Property<string>("Content")
                         .HasColumnType("longtext");
 
@@ -78,8 +78,8 @@ namespace Instagram.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<bool>("Like")
-                        .HasColumnType("tinyint(1)");
+                    b.Property<int?>("ReId")
+                        .HasColumnType("int");
 
                     b.Property<int?>("UserId")
                         .HasColumnType("int");
@@ -88,9 +88,39 @@ namespace Instagram.Migrations
 
                     b.HasIndex("ImageId");
 
+                    b.HasIndex("ReId")
+                        .IsUnique();
+
                     b.HasIndex("UserId");
 
                     b.ToTable("Posts");
+                });
+
+            modelBuilder.Entity("Instagram.Models.Reaction", b =>
+                {
+                    b.Property<int?>("ReId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Comment")
+                        .HasColumnType("longtext");
+
+                    b.Property<bool>("Like")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<int?>("PostId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ReId");
+
+                    b.HasIndex("PostId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Reactions");
                 });
 
             modelBuilder.Entity("Instagram.Models.Userz", b =>
@@ -169,11 +199,32 @@ namespace Instagram.Migrations
                         .WithMany()
                         .HasForeignKey("ImageId");
 
+                    b.HasOne("Instagram.Models.Reaction", "reaction")
+                        .WithOne()
+                        .HasForeignKey("Instagram.Models.Post", "ReId");
+
                     b.HasOne("Instagram.Models.Userz", "user")
                         .WithMany()
                         .HasForeignKey("UserId");
 
                     b.Navigation("image");
+
+                    b.Navigation("reaction");
+
+                    b.Navigation("user");
+                });
+
+            modelBuilder.Entity("Instagram.Models.Reaction", b =>
+                {
+                    b.HasOne("Instagram.Models.Post", "post")
+                        .WithMany()
+                        .HasForeignKey("PostId");
+
+                    b.HasOne("Instagram.Models.Userz", "user")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("post");
 
                     b.Navigation("user");
                 });

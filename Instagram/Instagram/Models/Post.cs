@@ -14,6 +14,7 @@ namespace Instagram.Models
         public int? UserId { get; set; }
         [ForeignKey("UserId")]
         public Userz? user { get; set; }
-        
+        public bool Like { get; set; }
+        public string? Comment { get; set; }
     }
 }
