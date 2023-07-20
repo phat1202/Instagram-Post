@@ -61,6 +61,20 @@ namespace Instagram.Controllers
         //    _context.SaveChanges();
         //    return RedirectToAction("Index","Home");
         //}
+        public IActionResult Like(int postId, int userId = 1)
+        {
+            var post = _context.Posts.FirstOrDefault(p => p.Id == postId);
+            if (post.Like == true)
+            {
+                post.Like = false;
+            }
+            else if (post.Like == false)
+            {
+                post.Like = true;
+            }
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Home");
+        }
     }
 
 }
