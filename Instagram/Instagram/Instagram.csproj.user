@@ -2,5 +2,6 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ActiveDebugProfile>https</ActiveDebugProfile>
+    <NameOfLastUsedPublishProfile>C:\Users\trgta\OneDrive\Desktop\C#\PP\Instagram-Post\.github\workflows\Instagram-Home.yml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
 </Project>
